@@ -5,7 +5,7 @@ angular.module('cdfinance').controller('HomepageController', HomepageController)
         console.log("HomepageController");
         var vm = this;
         vm.title = 'meanfinance app';
-        var url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey="+ "&apikey="+ key;
+        var url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey="+ key; 
         console.log(url);
         console.log(vm.title);
         return $http({
