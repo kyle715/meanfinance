@@ -1,3 +1,4 @@
+/*global  angular HomepageController RegisterController DashboardController BuyController FindController  DepositController*/
 angular.module('cdfinance', ['ngRoute', 'angular-jwt']).config(config).run(run);
 
 function config($httpProvider, $routeProvider) {
@@ -6,6 +7,8 @@ function config($httpProvider, $routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'angular-app/main/main.html',
+      controller: HomepageController,
+      controllerAs: 'vm',
       access: {
         restricted : false
       }
