@@ -1,5 +1,3 @@
-# dotenv environment variables file
-.env
 
 # environmental variable for apikey from newsapi.org
-/public/angular-app/main/key.js
+key.js
