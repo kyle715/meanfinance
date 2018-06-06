@@ -12,7 +12,7 @@ function DepositController($http, $window, AuthFactory, jwtHelper, $location) {
       
       $http.put('/api/users/'+ username +"/deposit", data).then(function(response) {
         if (response.status == 200) {
-          vm.message = "Balance increased."
+          vm.message = "$" + vm.amount + " added to account"; 
         }
       }).catch(function(error) {
         console.log(error);
