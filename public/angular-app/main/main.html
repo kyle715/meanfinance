@@ -2,7 +2,8 @@
 
     <h1>Headlines</h1>
     <ul ng-repeat="story in vm.stories">
-        <li><a ng-href="{{ story.url }}">{{ story.title }}</a></li>
+        <li><a ng-href="{{ story.url }}">{{ story.title }}</a> <img src = "{{ story.urlToImage }}" style="width:100px;height:100px;"></li>
+        
     </ul>
     
 
