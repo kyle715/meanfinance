@@ -9,18 +9,10 @@ function DepositController($http, $window, AuthFactory, jwtHelper, $location) {
       var decodedToken = jwtHelper.decodeToken(token);
       var username = decodedToken.username;
       var data = {"amount" : vm.amount};
-      var totalamount = $http.get('/api/users/' + username).then(function(response) {
-      vm.balance = response.data;});
-      
-      
-      $http.get('/api/users/' + username).then(function(response) {
-      vm.balance = response.data;
-      });
       
       $http.put('/api/users/'+ username +"/deposit", data).then(function(response) {
         if (response.status == 200) {
-          vm.balance += vm.amount;
-          vm.message = "$" + vm.amount + " added to account. Total Balance = " + vm.balance; 
+          vm.message = "$" + vm.amount + " added to account"; 
         }
       }).catch(function(error) {
         console.log(error);
