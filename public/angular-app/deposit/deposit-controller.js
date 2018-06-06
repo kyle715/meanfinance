@@ -12,11 +12,6 @@ function DepositController($http, $window, AuthFactory, jwtHelper, $location) {
       var totalamount = $http.get('/api/users/' + username).then(function(response) {
       vm.balance = response.data;});
       
-      
-      $http.get('/api/users/' + username).then(function(response) {
-      vm.balance = response.data;
-      });
-      
       $http.put('/api/users/'+ username +"/deposit", data).then(function(response) {
         if (response.status == 200) {
           vm.balance += vm.amount;
