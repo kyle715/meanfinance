@@ -1,11 +1,10 @@
-<div ng-controller="homepageController as vm">
+<div ng-controller="HomepageController as vm">
 
-    <h1>Main page</h1>
-    <h2>{{ vm.title }}</h2>
-        <p>title</p>
-        <p>description</p>
-        <p>url</p>
-    <ul>
-        <li>ng-repeat="title in vm.title"</li>
+    <h1>Headlines</h1>
+    <ul ng-repeat="story in vm.stories">
+        <li><a ng-href="{{ story.url }}">{{ story.title }}</a></li>
     </ul>
+    
+
+
 </div>

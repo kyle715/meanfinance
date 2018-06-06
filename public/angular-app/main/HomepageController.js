@@ -1,16 +1,18 @@
-/* global angular $ APIKEY key*/
+/* global angular $ key*/
 angular.module('cdfinance').controller('HomepageController', HomepageController);
 
-    function HomepageController($http, key) {
-        console.log("HomepageController");
+    function HomepageController($http) {
         var vm = this;
+        console.log("vm = ",vm);
+        var key = "53858d4a98684eababb6df2b285aa621";
+        console.log(key);
         vm.title = 'meanfinance app';
         var url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey="+ key; 
-        console.log(url);
-        console.log(vm.title);
-        return $http({
+        $http({
             method: "GET",
-            url : url
-        });
-        
+            url : url,
+        }).then(function(response) {
+        console.log(response);
+        vm.stories = response.data.articles;
+    });
     }
