@@ -25,7 +25,7 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
       var username = decodedToken.username;
       
       var data = {"symbol" : vm.symbol, "amount": vm.amount};
-      
+
       // Post purchased stock to user's portfolio
       $http.post('/api/users/'+ username +"/stocks", data).then(function(response) {
         //check the responses
@@ -40,6 +40,8 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
       var stockprice = response.data.price
       vm.stockprice = stockprice;
       // Once stockprice is found, make call to update user balance  
+      
+      
       updateUserAccountBalance(stockprice, username, vm.amount);
       
       }).catch(function(error) {
