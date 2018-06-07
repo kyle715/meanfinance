@@ -16,6 +16,7 @@
        <li ng-class="vm.isActiveTab('register')" ng-if="!vm.isLoggedIn()"><a href="#!/register">Register</a></li>
        <li ng-class="vm.isActiveTab('buy')" ng-if="vm.isLoggedIn()"><a href="#!/buy">Buy Stock</a></li>
        <li ng-class="vm.isActiveTab('deposit')" ng-if="vm.isLoggedIn()"><a href="#!/deposit">Deposit Funds</a></li>
+       <li ng-class="vm.isActiveTab('profile')"><a href="#!/profile" ng-if="vm.isLoggedIn()">Profile</a></li>
      </ul>
      <form ng-if="!vm.isLoggedIn()" class="navbar-form navbar-right" role="login" ng-submit="vm.login()">
       <div class="form-group" ng-class="{'has-error': vm.error}">
