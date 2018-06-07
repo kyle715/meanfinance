@@ -1,3 +1,4 @@
+/*global angular profileController*/
 angular.module('cdfinance', ['ngRoute', 'angular-jwt']).config(config).run(run);
 
 function config($httpProvider, $routeProvider) {
@@ -7,7 +8,7 @@ function config($httpProvider, $routeProvider) {
     .when('/', {
       templateUrl: 'angular-app/main/main.html',
       access: {
-        restricted : false
+        restricted : false 
       }
     })
     .when('/register', {
@@ -15,9 +16,19 @@ function config($httpProvider, $routeProvider) {
       controller: RegisterController,
       controllerAs: 'vm',
       access: {
-        restricted: false
+        restricted: false 
       }
     })
+    
+    .when('/profile', {
+      templateUrl: 'angular-app/profile/profile.html',
+      controller: profileController,
+      controllerAs: 'vm',
+      access: {
+        restricted: false // add from profile controller
+      }
+    })
+    
     .when('/dashboard', {
       templateUrl: 'angular-app/dashboard/dashboard.html',
       controller: DashboardController,
