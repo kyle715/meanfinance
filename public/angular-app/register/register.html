@@ -1,6 +1,11 @@
+<<<<<<< Updated upstream
 <h1>Register New Account</h1>
 
 <!-- Messages to appear for success or error -->
+=======
+<div class="container">
+<h1>Register</h1>
+>>>>>>> Stashed changes
 <div ng-if="vm.message" class="alert alert-success" role="alert">
   <p>{{ vm.message }}</p>
 </div>
@@ -8,7 +13,10 @@
   {{ vm.error }}
 </div>
 
+<<<<<<< Updated upstream
 <!-- Registration Form -->
+=======
+>>>>>>> Stashed changes
 <form ng-hide="vm.message" name="register" ng-submit="vm.register()">
   <div class="form-group">
     <label for="username">Username</label>
@@ -23,4 +31,11 @@
     <input type="password" required class="form-control" id="password-repeat" placeholder="Password" ng-model="vm.passwordRepeat" autocapitalize="none">
   </div>
   <button type="submit" class="btn btn-success">Register</button>
+  	<ul class="helper-text">
+		<li class="length">Must be at least 8 characters long.</li>
+		<li class="lowercase">Must contain a lowercase letter.</li>
+		<li class="uppercase">Must contain an uppercase letter.</li>
+		<li class="special">Must contain a number or special character.</li>
+	</ul>
 </form>
+</div>
