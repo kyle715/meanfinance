@@ -1,10 +1,15 @@
 <div ng-controller="HomepageController as vm">
 
     <h1>Headlines</h1>
-    <ul ng-repeat="story in vm.stories">
-        <li><a ng-href="{{ story.url }}">{{ story.title }}</a> <img src = "{{ story.urlToImage }}" style="width:100px;height:100px;"></li>
-        
-    </ul>
+    
+    <div class="story row" ng-repeat="story in vm.stories">
+        <div class="col-lg-4">
+            <img class = "himage" src = "{{ story.urlToImage }}">
+        </div>
+        <div class="col-lg-8">
+            <a ng-href="{{ story.url }}">{{ story.title }}
+        </div>
+    </div>
     
 
 
