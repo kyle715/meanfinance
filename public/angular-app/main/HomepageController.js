@@ -14,5 +14,6 @@ angular.module('cdfinance').controller('HomepageController', HomepageController)
         }).then(function(response) {
         console.log(response);
         vm.stories = response.data.articles;
-    });
-    }
+        })
+      };
+    
