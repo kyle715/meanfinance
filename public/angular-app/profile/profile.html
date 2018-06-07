@@ -18,13 +18,13 @@
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom w3-large"><h4>Welcome!</h4></a>
   <a href="javascript:void(0)" onclick="w3_close()" title="Close Sidemenu" 
   class="w3-bar-item w3-button w3-hide-large w3-large">Close<i class="fa fa-remove"></i></a>
-  <div ng-if="!vm.login" ng-show="Profile">
+  <div ng-if="!vm.login">
       <a href="#" class="w3-bar-item w3-button">My Stocks</a>
       <a href="#" class="w3-bar-item w3-button">Stock Watch</a>
       <a href="#" class="w3-bar-item w3-button">Find Stocks</a>
       <a href="#" class="w3-bar-item w3-button">Deposit</a>
       <a href="#" class="w3-bar-item w3-button">My Balance</a>
-      <li><button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></li>
+      <center><button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></center>
   </div>
 </nav>
 
