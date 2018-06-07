@@ -5,7 +5,7 @@ function profileController($http) {
   var vm = this;
   console.log("profileController");
   vm.find = function() {
-    var symbol = vm.symbol
-    console.log(symbol)
-  }
+    var symbol = vm.symbol;
+    console.log(symbol);
+  };
 }
