@@ -57,5 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
+<<<<<<< HEAD
+# environmental variable for apikey from newsapi.org
+=======
 # database
+>>>>>>> 1ef0eb2c48dac1575928993c20fe824bac74632f
 /database
