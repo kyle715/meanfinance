@@ -1,9 +1,14 @@
-angular.module('cdfinance').controller("DashboardController", DashboardController);
+/*global angular */
+angular.module('cdfinance').controller("profileController", profileController);
 
-function DashboardController( $http, $window, AuthFactory, jwtHelper, $location) {
+function profileController($http, $window, AuthFactory, jwtHelper, $location) {
   var vm = this;
-  if ($window.sessionStorage.token && AuthFactory.isLoggedIn) {
-    var token = $window.sessionStorage.token;
+  console.log("profileController");
+  vm.find = function() {
+    var symbol = vm.symbol
+    console.log(symbol)
+  }
+   var token = $window.sessionStorage.token;
     var decodedToken = jwtHelper.decodeToken(token);
     var username = decodedToken.username;
     
@@ -16,7 +21,4 @@ function DashboardController( $http, $window, AuthFactory, jwtHelper, $location)
     $http.get('/api/users/' + username).then(function(response) {
       vm.balance = response.data;
     });
-  } else {
-    $location.path('/');
   }
-}
