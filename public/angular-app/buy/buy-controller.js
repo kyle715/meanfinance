@@ -36,6 +36,7 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
       // Get stock price, taken from find-controller.js
       $http.get("/api/stocks/" + vm.symbol).then(function(response) {
       console.log("found stock")
+      
       console.log(data)
       var stockprice = response.data.price
       vm.stockprice = stockprice;
