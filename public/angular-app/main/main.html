@@ -1,23 +1,14 @@
 <div ng-controller="HomepageController as vm">
 
     <h1>Headlines</h1>
-<<<<<<< HEAD
     
     <div class="story row" ng-repeat="story in vm.stories">
         <div class="col-lg-4">
-            <img class = "himage" src = "{{ story.urlToImage }}">
+            <img class = "himage" src = "{{ story.urlToImage }}" alt="No Image">
         </div>
         <div class="col-lg-8">
-            <a ng-href="{{ story.url }}">{{ story.title }}
+            <a ng-href="{{ story.url }}" target="_blank">{{ story.title }}</a>
+
         </div>
     </div>
-=======
-    <ul ng-repeat="story in vm.stories">
-        <li><a ng-href="{{ story.url }}">{{ story.title }}</a> <img src = "{{ story.urlToImage }}" style="width:100px;height:100px;"></li>
-        
-    </ul>
->>>>>>> 859a596a69ab4661c27ecfd766c859172bb5227a
-    
-
-
 </div>

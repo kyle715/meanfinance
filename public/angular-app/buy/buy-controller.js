@@ -1,3 +1,4 @@
+/* global angular */
 angular.module('cdfinance').controller("BuyController", BuyController);
 
 function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
@@ -7,15 +8,15 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
   // Had to write separate function in order to get data from HTTP requests which are ASYNC
   function updateUserAccountBalance(currentStockPrice, user, amountPurchased) {
         // Cannot send a var of type number, must create an object to send to database
-        var newData = {"amount" : currentStockPrice * amountPurchased * -1}
+        var newData = {"amount" : currentStockPrice * amountPurchased * -1};
         // The put request will access the user account and change the balance
         $http.put('/api/users/'+ user +"/deposit", newData).then(function(response) {
         if (response.status == 200) {
-          console.log("SUCCESS")
+          console.log("SUCCESS");
         }
       }).catch(function(error) {
         console.log(error);
-      })
+      });
       }
   
   vm.buy = function() {
@@ -31,13 +32,13 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
         //check the responses
       }).catch(function(error) {
         console.log(error);
-      })
+      });
       
       // Get stock price, taken from find-controller.js
       $http.get("/api/stocks/" + vm.symbol).then(function(response) {
-      console.log("found stock")
-      console.log(data)
-      var stockprice = response.data.price
+      console.log("found stock");
+      console.log(data);
+      var stockprice = response.data.price;
       vm.stockprice = stockprice;
       // Once stockprice is found, make call to update user balance  
       updateUserAccountBalance(stockprice, username, vm.amount);
@@ -46,10 +47,14 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
         if (error) {
           vm.error = error;
         }
-      })
+      });
     
     } else {
       $location.path('/');
     }
-  }
+  };
+  vm.capitalize = function() {
+  vm.symbol = vm.symbol.toUpperCase();
+  };
+
 }
