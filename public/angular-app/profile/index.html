@@ -12,17 +12,32 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body>
+<<<<<<< HEAD
+=======
+    <div ng-controller="profileController as vm">
+>>>>>>> b9224a8c1fd99fa03596b6a9ab8bda31577a7fea
    <!-- Side Navigation -->
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-white w3-animate-left w3-card" style="z-index:3;width:320px;" id="mySidebar">
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom w3-large"><h4>Welcome!</h4></a>
   <a href="javascript:void(0)" onclick="w3_close()" title="Close Sidemenu" 
   class="w3-bar-item w3-button w3-hide-large w3-large">Close<i class="fa fa-remove"></i></a>
+<<<<<<< HEAD
   
   <a href="#" class="w3-bar-item w3-button">My Stocks</a>
   <a href="#" class="w3-bar-item w3-button">Stock Watch</a>
   <a href="#" class="w3-bar-item w3-button">Find Stocks</a>
   <a href="#" class="w3-bar-item w3-button">Deposit</a>
   <a href="#" class="w3-bar-item w3-button">My Balance</a>
+=======
+  <div ng-if="!vm.login">
+      <a href="#" class="w3-bar-item w3-button">My Stocks</a>
+      <a href="#" class="w3-bar-item w3-button">Stock Watch</a>
+      <a href="#" class="w3-bar-item w3-button">Find Stocks</a>
+      <a href="#" class="w3-bar-item w3-button">Deposit</a>
+      <a href="#" class="w3-bar-item w3-button">My Balance</a>
+      <center><button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></center>
+  </div>
+>>>>>>> b9224a8c1fd99fa03596b6a9ab8bda31577a7fea
 </nav>
 
 <!-- Overlay effect when opening the side navigation on small screens -->
@@ -45,6 +60,34 @@
   <h4>Moble: xxx-xxx-xxx</h4>
 </div>
 </div>
+<<<<<<< HEAD
 </body>
 </html>
 
+=======
+</div>
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Stocks</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="stock in vm.stocks" ng-init="counter = 0">
+      <td>{{stock._id}}</td>
+      <td>{{stock.amount}}</td>
+      <td>{{vm.prices | currency}}</td>
+      <td><button>sell</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><strong>Total Balance</strong></td>
+      <td>{{vm.balance | currency}}</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
+>>>>>>> b9224a8c1fd99fa03596b6a9ab8bda31577a7fea

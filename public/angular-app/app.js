@@ -30,7 +30,14 @@ function config($httpProvider, $routeProvider) {
         restricted: false // add from profile controller
       }
     })
-    
+    .when('/profile', {
+      templateUrl: 'angular-app/profile/profile.html',
+      controller: profileController,
+      controllerAs: 'vm',
+      access: {
+        restricted: false // add from profile controller
+      }
+    })
     .when('/dashboard', {
       templateUrl: 'angular-app/dashboard/dashboard.html',
       controller: DashboardController,

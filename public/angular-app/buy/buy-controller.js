@@ -25,7 +25,7 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
       var username = decodedToken.username;
       
       var data = {"symbol" : vm.symbol, "amount": vm.amount};
-      
+
       // Post purchased stock to user's portfolio
       $http.post('/api/users/'+ username +"/stocks", data).then(function(response) {
         //check the responses
@@ -36,6 +36,7 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
       // Get stock price, taken from find-controller.js
       $http.get("/api/stocks/" + vm.symbol).then(function(response) {
       console.log("found stock")
+      
       console.log(data)
       var stockprice = response.data.price
       vm.stockprice = stockprice;
@@ -52,4 +53,7 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
       $location.path('/');
     }
   }
+  vm.capitalize = function() {
+  vm.symbol = vm.symbol.toUpperCase();
+  };
 }

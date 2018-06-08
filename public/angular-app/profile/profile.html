@@ -3,6 +3,7 @@
 <head>
   <title>CareerDevs Finance</title>
   <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -10,18 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
-<style>
-    html,body,h1,h2,h3,h4,h5 {
-        font-family: "RobotoDraft", "Roboto", sans-serif
-    }
 
-    .w3-bar-block .w3-bar-item {
-        padding: 16px
-    }
-    #profile {
-        display: none;
-    }
-</style>
 <body>
     <div ng-controller="profileController as vm">
    <!-- Side Navigation -->
@@ -30,7 +20,7 @@
   <a href="javascript:void(0)" onclick="w3_close()" title="Close Sidemenu" 
   class="w3-bar-item w3-button w3-hide-large w3-large">Close<i class="fa fa-remove"></i></a>
   <div ng-if="!vm.login">
-      <!--add #!/main to Headline tab from Anu finished page-->
+      <!--add Main page to Headline tab-->
       <a href="#" class="w3-bar-item w3-button">Headlines</a>
       <a href="#!/find" class="w3-bar-item w3-button">Find Stocks</a>
       <a href="#!/buy" class="w3-bar-item w3-button">Buy Stocks</a>
@@ -53,7 +43,7 @@
   <img class="w3-round  w3-animate-top" src="logo.jpg" style="width:20%;">
   <h5 class="w3-opacity">Username:</h5>
   <h3><i class="glyphicon glyphicon-user"></i>Borge Refsnes</h3>
-  <hr> <!--what other stock users will only see-->
+  <hr>
   <h4>Current Activity: 06/16/2018</h4>
   <h4>Previous Activity: 05/23/2018</h4>
   <h4>Email: borgeRefsnes@yahoo.com</h4>
@@ -61,6 +51,27 @@
 </div>
 </div>
 </div>
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Stocks</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="stock in vm.stocks" ng-init="counter = 0">
+      <td>{{stock._id}}</td>
+      <td>{{stock.amount}}</td>
+      <td>{{vm.prices | currency}}</td>
+      <td><button>sell</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><strong>Total Balance</strong></td>
+      <td>{{vm.balance | currency}}</td>
+    </tr>
+  </tbody>
+</table>
 </body>
 </html>
-
