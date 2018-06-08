@@ -1,10 +1,9 @@
 var mongoose = require('mongoose');
 var dburl = 'mongodb://' + process.env.IP + ':27017/CDFinance';
 
-
 mongoose.connect(dburl, 
 {
-  useMongoClient: true,
+ useMongoClient: true,
 });
 
 mongoose.connection.on('connected', function() {

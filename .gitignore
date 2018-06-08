@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+# environmental variable for apikey from newsapi.org
+public/angular-app/main/key.js
+=======
 # Logs
 logs
 *.log
@@ -57,3 +61,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# database
+/database
+>>>>>>> 859a596a69ab4661c27ecfd766c859172bb5227a

@@ -1,0 +1,13 @@
+.story {
+    width:51%;
+    margin-top:30px;
+    font-size:20px;
+    border-bottom-style:solid;
+    border-width:0.5px;
+    padding:20px;
+    float: right;
+}
+.himage {
+    height: 120px;
+    width : 150px;
+}
