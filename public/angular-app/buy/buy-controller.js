@@ -41,8 +41,6 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
       var stockprice = response.data.price
       vm.stockprice = stockprice;
       // Once stockprice is found, make call to update user balance  
-      
-      
       updateUserAccountBalance(stockprice, username, vm.amount);
       
       }).catch(function(error) {
@@ -55,4 +53,7 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
       $location.path('/');
     }
   }
+  vm.capitalize = function() {
+  vm.symbol = vm.symbol.toUpperCase();
+  };
 }
