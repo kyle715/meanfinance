@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/*global angular profileController*/
-=======
 /*global  angular HomepageController RegisterController DashboardController BuyController FindController  DepositController*/
->>>>>>> 859a596a69ab4661c27ecfd766c859172bb5227a
 angular.module('cdfinance', ['ngRoute', 'angular-jwt']).config(config).run(run);
 
 function config($httpProvider, $routeProvider) {
