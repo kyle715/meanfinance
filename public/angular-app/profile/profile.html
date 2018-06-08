@@ -19,11 +19,12 @@
   <a href="javascript:void(0)" onclick="w3_close()" title="Close Sidemenu" 
   class="w3-bar-item w3-button w3-hide-large w3-large">Close<i class="fa fa-remove"></i></a>
   <div ng-if="!vm.login">
-      <a href="#" class="w3-bar-item w3-button">My Stocks</a>
-      <a href="#" class="w3-bar-item w3-button">Stock Watch</a>
-      <a href="#" class="w3-bar-item w3-button">Find Stocks</a>
-      <a href="#" class="w3-bar-item w3-button">Deposit</a>
-      <a href="#" class="w3-bar-item w3-button">My Balance</a>
+      <!--add Main page to Headline tab-->
+      <a href="#" class="w3-bar-item w3-button">Headlines</a>
+      <a href="#!/find" class="w3-bar-item w3-button">Find Stocks</a>
+      <a href="#!/buy" class="w3-bar-item w3-button">Buy Stocks</a>
+      <a href="#!/deposit" class="w3-bar-item w3-button">Deposit</a>
+      <a href="#!/dashboard" class="w3-bar-item w3-button">My Balance</a>
       <center><button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></center>
   </div>
 </nav>
