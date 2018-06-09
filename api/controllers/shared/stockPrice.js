@@ -1,9 +1,5 @@
 var https = require('https');
-<<<<<<< HEAD
-var _apiUrl = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=ZOBPSQXM4QMLF0T3&outputsize=compact"
-=======
 var _apiUrl = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=L87H46XYEIL1HK5O&outputsize=compact"
->>>>>>> b9224a8c1fd99fa03596b6a9ab8bda31577a7fea
 
 module.exports.getPrice = function(req, res, symbol) {
   

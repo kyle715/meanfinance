@@ -11,3 +11,32 @@
     height: 120px;
     width : 150px;
 }
+
+/* If password requirements not met, 
+they will appear in red text. Otherwise, green text. */
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
+}
+
+.valid:before {
+    color: black;
+}
+
+.invalid:before {
+    color: black;
+}
+
+.register {
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.requirements {
+    padding: 25px;
+    border: 1px solid #ccc;
+
+}
