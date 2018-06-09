@@ -3,11 +3,12 @@ angular.module('cdfinance').controller("profileController", profileController);
 
 function profileController($http, $window, AuthFactory, jwtHelper, $location) {
   var vm = this;
-  console.log("profileController");
   vm.find = function() {
     var symbol = vm.symbol
     console.log(symbol)
   }
+  
+  
    var token = $window.sessionStorage.token;
     var decodedToken = jwtHelper.decodeToken(token);
     var username = decodedToken.username;
@@ -22,4 +23,5 @@ function profileController($http, $window, AuthFactory, jwtHelper, $location) {
     $http.get('/api/users/' + username).then(function(response) {
       vm.balance = response.data;
     });
+    
   }

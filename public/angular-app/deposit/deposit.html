@@ -1,11 +1,11 @@
-<h1>Deposit Funds</h1>
-<div ng-if="vm.message" class="alert alert-success" role="alert">
+<h1 class="text-center">Deposit Funds</h1>
+<div ng-if="vm.message" class="container alert alert-success" role="alert">
   <p>{{ vm.message }}</p>
 </div>
 <div ng-if="vm.error" class="alert alert-danger" role="alert">
   {{ vm.error }}
 </div>
-<form ng-hide="vm.message" name="find" ng-submit="vm.deposit()">
+<form class="container" ng-hide="vm.message" name="find" ng-submit="vm.deposit()">
   <div class="form-group">
     <label for="amount">amount</label>
     <input type="number" class="form-control" id="amount" placeholder="Amount" ng-model="vm.amount">

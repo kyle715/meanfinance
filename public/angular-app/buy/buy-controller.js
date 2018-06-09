@@ -20,28 +20,32 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
   
   vm.buy = function() {
     if ($window.sessionStorage.token && AuthFactory.isLoggedIn) {
-      var token = $window.sessionStorage.token;
-      var decodedToken = jwtHelper.decodeToken(token);
-      var username = decodedToken.username;
-
-      $http.get('/api/stocks/' + vm.symbol).then(function(response) {
-      vm.prices = response.data
-      });
-      
-      var data = {"symbol" : vm.symbol, "amount": vm.amount, "prices": vm.prices};
+      $http.get("/api/stocks/" + vm.symbol).then(function(response) {
+      var stockprice = response.data.price
+      vm.stockprice = stockprice;
+      var data = {"symbol" : vm.symbol, "amount": vm.amount};
+      var totalStockPrice = vm.stockprice * vm.amount;
+      console.log(data);
       
       // Post purchased stock to user's portfolio
-      $http.post('/api/users/'+ username +"/stocks", data).then(function(response) {
+      $http.post('/api/users/'+ username +"/stocks", data, totalStockPrice).then(function(response) {
         //check the responses
       }).catch(function(error) {
         console.log(error);
       })
+      }).catch(function(error, response) {
+        if (response.status == 200) {
+          vm.message = "$" + vm.amount + " added to account. Total Balance = " + vm.balance; 
+        }
+      })
+      var token = $window.sessionStorage.token;
+      var decodedToken = jwtHelper.decodeToken(token);
+      var username = decodedToken.username;
+      
       
       // Get stock price, taken from find-controller.js
       $http.get("/api/stocks/" + vm.symbol).then(function(response) {
       console.log("found stock")
-      
-      console.log(data)
       var stockprice = response.data.price
       vm.stockprice = stockprice;
       // Once stockprice is found, make call to update user balance  

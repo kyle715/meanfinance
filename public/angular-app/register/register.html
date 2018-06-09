@@ -1,22 +1,115 @@
-<h1>Register</h1>
-<div ng-if="vm.message" class="alert alert-success" role="alert">
-  <p>{{ vm.message }}</p>
-</div>
-<div ng-if="vm.error" class="alert alert-danger" role="alert">
-  {{ vm.error }}
-</div>
-<form ng-hide="vm.message" name="register" ng-submit="vm.register()">
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="username" class="form-control" id="username" placeholder="Username" ng-model="vm.username" autocapitalize="none">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+
+<body>
+  <h1 class="text-center">Register New Account</h1>
+
+  <div class="container">
+    <div class="row">
+    
+        <div class="col-xs-6 register" style="background-color:lavender;">
+          <div ng-if="vm.message" class="alert alert-success" role="alert">
+            <p>{{ vm.message }}</p>
+          </div>
+          <div ng-if="vm.error" class="alert alert-danger" role="alert">
+            <p>{{ vm.error }}</p>
+          </div>
+
+        <form ng-hide="vm.message" name="register" ng-submit="vm.register()">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="username" required class="form-control" id="username" placeholder="Username" ng-model="vm.username" autocapitalize="none">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" required class="form-control password" id="password" placeholder="Password" ng-model="vm.password" autocapitalize="none">
+          </div>
+          <div class="form-group">
+            <label for="password-repeat">Repeat Password</label>
+            <input type="password" required class="form-control" id="password-repeat" placeholder="Password" ng-model="vm.passwordRepeat" autocapitalize="none">
+            <button type="submit" class="btn btn-success">Register</button>
+          </div>
+        </form>
+      </div>
+    
+    
+      <div class="col-xs-6 requirements" id="message" style="background-color:lavenderblush;">
+        <div class="col-sm-6">
+        <h3>Password Must Contain</h3>  
+    	  <ul class="helper-text">
+  		    <li id="letter" class="invalid">A <b>lowercase</b> letter.</li>
+  		    <li id="capital" class="invalid">An <b>uppercase</b> letter.</li>
+  		    <li id="number" class="invalid">A <b>number</b>.</li>
+  		    <li id="length" class="invalid">Minimum <b>8 characters</b> in length.</li>
+	      </ul> 
+        </div>
+      </div>
   </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.password" autocapitalize="none">
-  </div>
-  <div class="form-group">
-    <label for="password-repeat">Repeat Password</label>
-    <input type="password" class="form-control" id="password-repeat" placeholder="Password" ng-model="vm.passwordRepeat" autocapitalize="none">
-  </div>
-  <button type="submit" class="btn btn-success">Register</button>
-</form>
+</div> 
+    
+<script>
+  var password = document.getElementById("password");
+	var letter = document.getElementById("letter");
+	var capital = document.getElementById("capital");
+	var number = document.getElementById("number");
+	var length = document.getElementById("length");
+  // When the user clicks on the password field, show the message box
+  password.onfocus = function() {
+      document.getElementById("message").style.display = "block";
+  };
+  
+  // When the user clicks outside of the password field, hide the message box
+  password.onblur = function() {
+      document.getElementById("message").style.display = "none";
+  };
+	// When the user starts to type (onkeyup) inside the password field
+	password.onkeyup = function() {
+	
+  // Validate if that content has lowercase letters
+  // change the color of the requirements to red or green
+  var lowerCaseLetters = /[a-z]/g;
+  if(password.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // Validate if that content has capital letters
+  // change the color of the requirements to red or green
+  var upperCaseLetters = /[A-Z]/g;
+  if(password.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+  // Validate if the content has numbers
+  // change the color of the requirements to red or green
+  var numbers = /[0-9]/g;
+  if(password.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate if the length of the content is more than or = to 8
+  if(password.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+};
+</script>        
+    
+</body>
+</html>
+

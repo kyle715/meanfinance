@@ -24,6 +24,7 @@ angular.module('cdfinance').controller('HomepageController', HomepageController)
                     var urlToImage = obj.urlToImage;
                     var imgUrl = obj.urlToImage;
                     var imgUrlArr = imgUrl.split(":");
+                    var description = obj.description;
                     //console.log(imgUrlArr);
                     if (imgUrlArr[0] == "http") {
                         imgUrlArr[0] = "https";
@@ -32,6 +33,7 @@ angular.module('cdfinance').controller('HomepageController', HomepageController)
                     newObj.title = title;
                     newObj.url = url;
                     newObj.urlToImage = urlToImage;
+                    newObj.description = description;
                     return newObj;
             });
         }).catch(function(error) {

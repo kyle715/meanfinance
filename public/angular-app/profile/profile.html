@@ -11,7 +11,24 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
+
 <body>
+    <div ng-controller="profileController as vm">
+   <!-- Side Navigation -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-white w3-card" style="z-index:3;width:320px;" id="mySidebar">
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom w3-large"><h4>Welcome back {{v}}</h4></a>
+  <a href="javascript:void(0)" onclick="w3_close()" title="Close Sidemenu" 
+  class="w3-bar-item w3-button w3-hide-large w3-large">Close<i class="fa fa-remove"></i></a>
+  <div ng-if="!vm.login">
+      <!--add Main page to Headline tab-->
+      <a href="#" class="w3-bar-item w3-button">Headlines</a>
+      <a href="#!/find" class="w3-bar-item w3-button">Find Stocks</a>
+      <a href="#!/buy" class="w3-bar-item w3-button">Buy Stocks</a>
+      <a href="#!/deposit" class="w3-bar-item w3-button">Deposit</a>
+      <a href="#!/dashboard" class="w3-bar-item w3-button">My Balance</a>
+      <center><button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></center>
+  </div>
+</nav>
 
 <!-- Overlay effect when opening the side navigation on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="Close Sidemenu" id="myOverlay"></div>
@@ -25,6 +42,7 @@
   <br>
   <h5 class="w3-opacity">Username:</h5>
   <h3><i></i>  {{ vm.username }}</h3>
+  <h3><strong>Total Balance:</strong>{{vm.balance | currency}}</h3>
   <hr>
 </div>
 </div>
@@ -33,22 +51,14 @@
 <table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th>Symbol</th>
-      <th>Stocks</th>
-      <th>Total</th>
+      <th>Owned Stocks</th>
+      <th>Amount Owned</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="stock in vm.stocks" ng-init="counter = 0">
       <td>{{stock._id}}</td>
       <td>{{stock.amount}}</td>
-      <td>{{vm.prices | currency}}</td>
-      <td><button>sell</button></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><strong>Total Balance</strong></td>
-      <td>{{vm.balance | currency}}</td>
     </tr>
   </tbody>
 </table>

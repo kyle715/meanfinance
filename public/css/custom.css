@@ -8,8 +8,9 @@
     float: right;
 }
 .himage {
-    height: 120px;
-    width : 150px;
+    height: 250px;
+    width : 300px;
+    float:left;
 }
 #mySideBar{
     float: left;
@@ -19,3 +20,34 @@
     margin-left: 20%;
     margin-right: 30%;
 }
+div {
+    font-family:"Roboto Condensed";
+}
+h1 {
+    font-family:"Roboto Condensed";
+    text-align:center;
+}
+.newslinks {
+    font-family:"Merriweather";
+    font-size:25px;
+    padding:0px;
+}
+ul {
+  list-style-type: none;
+}
+.mainPage{
+    margin-left:30px;
+    margin-right:50px;
+}
+.description{
+    text-size:20px
+}
+li {
+    padding:0px;
+}
+/*body {*/
+/*background-image:url('/images/background.png');*/
+/*background-repeat:no-repeat;*/
+/*background-attachment: fixed;*/
+/*background-size:cover;*/
+/*}*/

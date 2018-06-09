@@ -1,11 +1,11 @@
-<h1>Find Stocks</h1>
+<h1 class="text-center">Find Stocks</h1>
 <div ng-if="vm.message" class="alert alert-success" role="alert">
   <p>{{ vm.message }}</p>
 </div>
 <div ng-if="vm.error" class="alert alert-danger" role="alert">
   {{ vm.error }}
 </div>
-<form ng-hide="vm.message" name="find" ng-submit="vm.find()">
+<form class="container" ng-hide="vm.message" name="find" ng-submit="vm.find()">
   <div class="form-group">
     <label for="symbol">Symbol</label>
     <input type="text" class="form-control" id="symbol" placeholder="Symbol" ng-model="vm.symbol" autocapitalize="none" ng-keyup="vm.capitalize()">
