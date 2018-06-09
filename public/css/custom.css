@@ -11,3 +11,11 @@
     height: 120px;
     width : 150px;
 }
+#mySideBar{
+    float: left;
+    height: 100%;
+}
+#dashboardTable{
+    margin-left: 20%;
+    margin-right: 30%;
+}
